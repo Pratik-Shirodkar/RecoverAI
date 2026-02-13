@@ -755,20 +755,12 @@ app.post('/acp/update-job', (req, res) => {
 //  START
 // =============================================================================
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-    console.log(`\n🚀 RecoverAI Backend running on http://localhost:${PORT}`);
-    console.log(`   ├── Weather Oracle (x402):  GET  /weather`);
-    console.log(`   ├── Risk Analysis (x402):   GET  /risk-analysis`);
-    console.log(`   ├── BITE Status:            GET  /bite/status`);
-    console.log(`   ├── BITE Committee:         GET  /bite/committee-info`);
-    console.log(`   ├── BITE Encrypt:           POST /bite/encrypt-policy`);
-    console.log(`   ├── BITE Decrypt:           POST /bite/decrypt-claim`);
-    console.log(`   ├── AP2 Create Mandate:     POST /ap2/create-mandate`);
-    console.log(`   ├── AP2 Approve:            POST /ap2/approve-mandate`);
-    console.log(`   ├── AP2 Reject:             POST /ap2/reject-mandate`);
-    console.log(`   ├── AP2 Settle:             POST /ap2/settle-mandate`);
-    console.log(`   ├── AP2 Pending:            GET  /ap2/pending`);
-    console.log(`   ├── Audit Log:              GET  /audit-log`);
-    console.log(`   ├── Simulate Storm:         POST /simulate-storm`);
-    console.log(`   └── Reset:                  POST /reset\n`);
-});
+
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`\n🚀 RecoverAI Backend running on http://localhost:${PORT}`);
+        // ... (logs)
+    });
+}
+
+export default app;

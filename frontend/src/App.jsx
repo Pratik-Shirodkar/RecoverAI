@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import LandingPage from './LandingPage'
 import './App.css'
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:4000'
+const API = import.meta.env.VITE_API_URL || 'https://backend-five-psi-33.vercel.app'
 
 function App() {
     const [view, setView] = useState('landing');
