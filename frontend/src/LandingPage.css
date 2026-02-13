@@ -1,0 +1,626 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --lp-bg: #05070a;
+    --lp-surface: #0d1117;
+    --lp-accent: #00f2ff;
+    --lp-accent-dim: rgba(0, 242, 255, 0.1);
+    --lp-text: #f0f6fc;
+    --lp-text-dim: #8b949e;
+    --lp-border: rgba(255, 255, 255, 0.08);
+    --lp-grid: rgba(0, 242, 255, 0.03);
+}
+
+.landing-page {
+    min-height: 100vh;
+    background-color: var(--lp-bg);
+    color: var(--lp-text);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- Background Layer --- */
+.lp-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.lp-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--lp-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--lp-grid) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.lp-grid-major {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 200px 200px;
+}
+
+.lp-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 20%, var(--lp-bg) 85%);
+}
+
+.lp-scanline {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.1) 51%);
+    background-size: 100% 4px;
+}
+
+/* --- Header --- */
+.lp-header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem;
+    z-index: 100;
+    position: relative;
+    border-bottom: 1px solid var(--lp-border);
+    backdrop-filter: blur(10px);
+}
+
+.lp-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lp-logo-box {
+    width: 36px;
+    height: 36px;
+    background: var(--lp-accent);
+    color: var(--lp-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%);
+}
+
+.lp-logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.lp-logo-text span {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+}
+
+.lp-logo-text small {
+    font-size: 0.6rem;
+    font-family: 'JetBrains Mono';
+    color: var(--lp-accent);
+    letter-spacing: 0.2em;
+}
+
+.lp-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.lp-virtuals-badge {
+    background: #fff;
+    color: #000;
+    padding: 0.4rem 1rem;
+    font-family: 'JetBrains Mono';
+    font-weight: 800;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    margin-right: 1rem;
+}
+
+.lp-nav-item {
+    font-family: 'JetBrains Mono';
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--lp-text-dim);
+}
+
+.lp-top-launch {
+    background: transparent;
+    border: 1px solid var(--lp-accent);
+    color: var(--lp-accent);
+    padding: 0.5rem 1.5rem;
+    font-family: 'JetBrains Mono';
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lp-top-launch:hover {
+    background: var(--lp-accent);
+    color: var(--lp-bg);
+    box-shadow: 0 0 15px var(--lp-accent-dim);
+}
+
+/* --- Hero Section --- */
+.lp-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 8rem 4rem;
+    position: relative;
+    z-index: 10;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.lp-hero-tag {
+    font-family: 'JetBrains Mono';
+    font-size: 0.75rem;
+    color: var(--lp-accent);
+    margin-bottom: 2rem;
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: var(--lp-accent-dim);
+    border-left: 3px solid var(--lp-accent);
+}
+
+.lp-hero h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    letter-spacing: -0.04em;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #fff, var(--lp-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lp-hero p {
+    font-size: 1.2rem;
+    color: var(--lp-text-dim);
+    line-height: 1.6;
+    max-width: 550px;
+    margin-bottom: 3rem;
+}
+
+.lp-launch-btn {
+    background: var(--lp-accent);
+    color: var(--lp-bg);
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%);
+}
+
+.lp-launch-btn.big {
+    padding: 1.25rem 3rem;
+    font-size: 1.1rem;
+}
+
+.lp-launch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--lp-accent-dim);
+    filter: brightness(1.1);
+}
+
+.lp-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.lp-hero-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.stat-desc {
+    font-size: 0.7rem;
+    color: var(--lp-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* --- Terminal Mockup --- */
+.lp-terminal-wrap {
+    position: relative;
+}
+
+.lp-terminal {
+    background: #0d1117;
+    border: 1px solid var(--lp-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lp-terminal-header {
+    height: 40px;
+    background: #161b22;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 1rem;
+}
+
+.lp-terminal-header .dots {
+    display: flex;
+    gap: 6px;
+}
+
+.lp-terminal-header .dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #30363d;
+}
+
+.lp-terminal-header .title {
+    font-family: 'JetBrains Mono';
+    font-size: 0.7rem;
+    color: var(--lp-text-dim);
+    opacity: 0.6;
+}
+
+.lp-terminal-body {
+    flex: 1;
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono';
+    font-size: 0.85rem;
+    overflow-y: auto;
+    line-height: 1.5;
+}
+
+.log-line {
+    margin-bottom: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.log-prompt {
+    color: var(--lp-accent);
+    opacity: 0.5;
+}
+
+.type-system {
+    color: #8b949e;
+    font-weight: 600;
+}
+
+.type-success {
+    color: #3fb950;
+}
+
+.type-info {
+    color: #388bfd;
+}
+
+.type-action {
+    color: #f2cc60;
+}
+
+.log-cursor {
+    display: inline-block;
+    color: var(--lp-accent);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.lp-terminal-shadow {
+    position: absolute;
+    inset: -20px;
+    background: var(--lp-accent-dim);
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* --- Section Title --- */
+.section-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.section-header p {
+    color: var(--lp-text-dim);
+    font-size: 1.1rem;
+}
+
+.lp-section {
+    padding: 8rem 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+.lp-section.dark {
+    background: #020408;
+    border-top: 1px solid var(--lp-border);
+    border-bottom: 1px solid var(--lp-border);
+}
+
+/* --- Lifecycle Timeline --- */
+.lp-lifecycle {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.lifecycle-step {
+    padding: 2.5rem;
+    background: var(--lp-surface);
+    border: 1px solid var(--lp-border);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.lifecycle-step:hover {
+    border-color: var(--lp-accent);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.step-num {
+    font-family: 'JetBrains Mono';
+    font-size: 1rem;
+    color: var(--lp-accent);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.lifecycle-step h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.lifecycle-step p {
+    color: var(--lp-text-dim);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.step-badge {
+    font-family: 'JetBrains Mono';
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--lp-border);
+    display: inline-block;
+    color: var(--lp-text-dim);
+}
+
+/* --- Specs Grid --- */
+.lp-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.spec-card {
+    text-align: center;
+    padding: 4rem 2rem;
+    border: 1px solid var(--lp-border);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+}
+
+.spec-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.spec-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.spec-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--lp-accent);
+    margin: 0 auto 2rem;
+}
+
+.spec-card ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.spec-card li {
+    color: var(--lp-text-dim);
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono';
+}
+
+/* --- Footer --- */
+/* --- Tracks Grid --- */
+.lp-tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+}
+
+.track-card {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--lp-border);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.track-card:hover {
+    background: var(--lp-accent-dim);
+    border-color: var(--lp-accent);
+    transform: scale(1.02);
+}
+
+.track-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.track-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.track-card p {
+    font-size: 0.85rem;
+    color: var(--lp-text-dim);
+    line-height: 1.5;
+}
+
+.lp-tracks-banner-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid var(--lp-border);
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.lp-tracks-banner {
+    width: 100%;
+    height: auto;
+    filter: grayscale(1) contrast(1.2) brightness(0.8);
+    transition: all 0.5s ease;
+}
+
+.lp-tracks-banner:hover {
+    filter: grayscale(0) contrast(1) brightness(1);
+}
+
+.lp-footer {
+    padding: 8rem 4rem 4rem;
+    border-top: 1px solid var(--lp-border);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.lp-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.lp-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4rem;
+    border-top: 1px solid var(--lp-border);
+    padding-top: 2rem;
+}
+
+.lp-footer-bottom p {
+    font-family: 'JetBrains Mono';
+    font-size: 0.7rem;
+    color: var(--lp-text-dim);
+}
+
+.lp-footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.lp-footer-links span {
+    font-family: 'JetBrains Mono';
+    font-size: 0.7rem;
+    color: var(--lp-text-dim);
+    cursor: pointer;
+}
+
+.pulse-text {
+    color: #3fb950;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 1024px) {
+    .lp-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 6rem 1.5rem;
+    }
+
+    .lp-hero h1 {
+        font-size: 3rem;
+    }
+
+    .lp-hero-actions {
+        justify-content: center;
+    }
+
+    .lp-hero p {
+        margin: 0 auto 3rem;
+    }
+
+    .lp-specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lp-header {
+        padding: 0 1.5rem;
+    }
+
+    .lp-section {
+        padding: 6rem 1.5rem;
+    }
+}

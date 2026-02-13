@@ -1,0 +1,7 @@
+flask
+flask-cors
+requests
+web3
+py-solc-x
+eth-account
+cdp-sdk
